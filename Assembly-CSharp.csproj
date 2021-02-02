@@ -55,15 +55,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Other\ColorPanel\ColorPanel.cs" />
-    <Compile Include="Assets\Scripts\Contollers\PlayColorPanelController.cs" />
-    <Compile Include="Assets\Scripts\Managers\ColorPanelManager.cs" />
-    <Compile Include="Assets\Scripts\Other\ColorPanel\PlayColorPanel.cs" />
     <Compile Include="Assets\Scripts\Other\ColorPanel\TargetColorPanel.cs" />
-    <Compile Include="Assets\Scripts\Contollers\TargetColorPanelController.cs" />
-    <Compile Include="Assets\Scripts\Managers\FlickManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\MoveManager.cs" />
+    <Compile Include="Assets\Scripts\Other\ColorPanel\ColorCalc.cs" />
+    <Compile Include="Assets\Scripts\Contollers\PlayColorPanelController.cs" />
+    <Compile Include="Assets\Scripts\Other\ColorPanel\PlayColorPanel.cs" />
     <Compile Include="Assets\Scripts\Contollers\ColorPanelController.cs" />
+    <Compile Include="Assets\Scripts\Managers\FlickManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\ColorPanelManager.cs" />
+    <Compile Include="Assets\Scripts\Other\ColorPanel\ColorPanel.cs" />
+    <Compile Include="Assets\Scripts\Managers\MoveManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\TargetPanelManager.cs" />
+    <Compile Include="Assets\Scripts\Contollers\TargetColorPanelController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

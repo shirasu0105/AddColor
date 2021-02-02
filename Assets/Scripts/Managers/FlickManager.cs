@@ -21,16 +21,17 @@ public class FlickManager : MonoBehaviour
 
     public void Flick()
     {
+        int direction;
         if (Mathf.Abs(startPos.x - endPos.x) > Mathf.Abs(startPos.y - endPos.y))
         {
             if (startPos.x > endPos.x)
             {
-                StartCoroutine(MoveManager.Move(0));
+                direction = 0;
                 Debug.Log("左");
             }
             else
             {
-                StartCoroutine(MoveManager.Move(1));
+                direction = 1;
                 Debug.Log("右");
             }
         }
@@ -38,15 +39,17 @@ public class FlickManager : MonoBehaviour
         {
             if (startPos.y > endPos.y)
             {
-                StartCoroutine(MoveManager.Move(2));
+                direction = 2;
                 Debug.Log("下");
             }
             else
             {
-                StartCoroutine(MoveManager.Move(3));
+                direction = 3;
                 Debug.Log("上");
             }
         }
+        StartCoroutine(MoveManager.Move(direction));
+
         startPos = new Vector2(0, 0);
         endPos = new Vector2(0, 0);
     }

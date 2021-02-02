@@ -14,7 +14,9 @@ public class ColorPanelController : MonoBehaviour
             float startTime = Time.time;
             float speed = 4000;
             var distance = Vector2.Distance(coordinate, targetCoordinate);
-            while (Vector2.Distance(transform.localPosition, targetCoordinate) != 0)
+            Debug.Log("元距離：" + distance);
+            Debug.Log("先距離：" + Vector2.Distance(transform.localPosition, targetCoordinate));
+            while (Vector2.Distance(transform.localPosition, targetCoordinate) != 0.0f)
             {
                 transform.localPosition = Vector2.Lerp(
                     coordinate,
@@ -25,5 +27,12 @@ public class ColorPanelController : MonoBehaviour
             }
             callback();
         }
+    }
+
+    public void Destruction()
+    {
+        Debug.Log("消えたよ");
+        Debug.Log(gameObject.name);
+        Destroy(gameObject);
     }
 }

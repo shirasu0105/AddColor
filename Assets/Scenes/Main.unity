@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd472f9560629d4fb92a96bca2b6c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlickPanel: {fileID: 399678651}
   PlayColorPanelPref: {fileID: 2622396562613964016, guid: d83d1199d08b95f47b9091e24740f19a, type: 3}
   Parent: {fileID: 554108543}
   playColorPanelControllers:
@@ -181,13 +182,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  targetColorPanelController:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -637,7 +631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7f642c64be100a343b78164a80bed212, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
