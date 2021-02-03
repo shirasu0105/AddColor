@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2622396562613964017}
   - component: {fileID: 2622396562613964019}
   - component: {fileID: 2622396562613964018}
-  - component: {fileID: 2154134051179210393}
+  - component: {fileID: 3457599700962473939}
+  - component: {fileID: -7496476092268345887}
   m_Layer: 5
   m_Name: PlayColorPanel
   m_TagString: Untagged
@@ -76,7 +77,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2154134051179210393
+--- !u!114 &3457599700962473939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2622396562613964016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1009ac21a1b695e4f8ece83439c3b806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7496476092268345887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -6,16 +6,19 @@ public class MoveManager : MonoBehaviour
     [SerializeField] ColorPanelManager ColorPanelManager;
     [SerializeField] FlickManager FlickManager;
 
-    public int move { get; private set; } = 1;
+    public Move move = new Move();
+
 
     private void Start()
     {
+        move.SetPanelColor();
         ColorPanelManager.InsColorPanel();
     }
 
-    public IEnumerator Move(int flickDirection)
+    public IEnumerator Move()
     {
-        yield return ColorPanelManager.MoveColorPanel(flickDirection);
+        yield return StartCoroutine(ColorPanelManager.MoveColorPanel());
+        ColorPanelManager.DestroyColorPanel();
         ColorPanelManager.InsColorPanel();
     }
 }

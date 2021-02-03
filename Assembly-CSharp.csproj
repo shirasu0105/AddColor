@@ -66,6 +66,10 @@
     <Compile Include="Assets\Scripts\Managers\MoveManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TargetPanelManager.cs" />
     <Compile Include="Assets\Scripts\Contollers\TargetColorPanelController.cs" />
+    <Compile Include="Assets\Scripts\Managers\ColorPanelMoverManager.cs" />
+    <Compile Include="Assets\Scripts\Contollers\ColorPanelMoverController.cs" />
+    <Compile Include="Assets\Scripts\Other\Move.cs" />
+    <Compile Include="Assets\Scripts\Managers\ChangeCalcManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
