@@ -8,18 +8,13 @@ public class ColorPanelManager : MonoBehaviour
     [SerializeField] GameObject FlickPanel;
     [SerializeField] GameObject PlayColorPanelPref;
     [SerializeField] Transform Parent;
+    [SerializeField] GameManager GameManager;
     [SerializeField] MoveManager MoveManager;
     [SerializeField] ColorPanelMoverManager ColorPanelMoverManager;
 
 
     public PlayColorPanelController[] playColorPanelControllers = new PlayColorPanelController[16];
     private PlayColorPanelController[] destroyPref = new PlayColorPanelController[16];
-
-
-    private void Start()
-    {
-
-    }
 
     //余分なプレハブを削除
     public void DestroyColorPanel()
@@ -28,7 +23,7 @@ public class ColorPanelManager : MonoBehaviour
         {
             if(destroyPref[i] != null)
             {
-                Destroy(destroyPref[i].gameObject);
+                destroyPref[i].Destruction();
                 destroyPref[i] = null;
             }
             
@@ -38,6 +33,7 @@ public class ColorPanelManager : MonoBehaviour
     //空いてるところにプレハブ生成
     public void InsColorPanel()
     {
+        int insColor;
         int insPlace;
         int[] nullPlace = new int[16];
         int count = 0;
@@ -52,12 +48,20 @@ public class ColorPanelManager : MonoBehaviour
             }
         }
 
-        insPlace = Random.Range(0, count - 1);
+        insPlace = Random.Range(0, count);
+
+        //ランダム生成する色が、ターゲットと別の色になるまでランダム生成を繰り返す
+        do
+        {
+            insColor = Random.Range(0, MoveManager.move.panelColor.Length);
+        }
+        while (MoveManager.move.panelColor[insColor] == GameManager.game.nowTargetColor);
+
 
         //nullの場所からランダムに選んでプレハブ生成/インスタンス化
         var ins = Instantiate(PlayColorPanelPref, Parent);
         playColorPanelControllers[nullPlace[insPlace]] = ins.GetComponent<PlayColorPanelController>();
-        playColorPanelControllers[nullPlace[insPlace]].SetColor(MoveManager.move.panelColor[Random.Range(0, MoveManager.move.panelColor.Length - 1)]);
+        playColorPanelControllers[nullPlace[insPlace]].SetColor(MoveManager.move.panelColor[insColor]);
         Debug.Log("生成色：" + playColorPanelControllers[nullPlace[insPlace]].playColorPanel.myColor);
         ColorPanelMoverManager.ColorPanelIns(ins, nullPlace[insPlace]);
 
@@ -127,6 +131,24 @@ public class ColorPanelManager : MonoBehaviour
         for (int i = 0; i < playColorPanelControllers.Length; i++)
         {
             playColorPanelControllers[i] = temp[i];
+        }
+    }
+
+    //プレイカラーパネルの色と現在のターゲットカラーパネルの色が同じかどうか
+    public void CheckPanelColor()
+    {
+        Debug.Log("ターゲットカラー" + GameManager.game.nowTargetColor);
+        for (int i = 0; i < playColorPanelControllers.Length; i++)
+        {
+            if(playColorPanelControllers[i] != null)
+            {
+                if (playColorPanelControllers[i].playColorPanel.myColor == GameManager.game.nowTargetColor)
+                {
+                    playColorPanelControllers[i].Destruction();
+                    StartCoroutine(GameManager.CompleteColor());
+                }
+            }
+
         }
     }
 }

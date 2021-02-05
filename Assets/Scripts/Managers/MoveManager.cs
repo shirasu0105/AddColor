@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class MoveManager : MonoBehaviour
 {
+    [SerializeField] GameManager GameManager;
     [SerializeField] ColorPanelManager ColorPanelManager;
     [SerializeField] FlickManager FlickManager;
 
     public Move move = new Move();
 
-
-    private void Start()
+    private void Awake()
     {
         move.SetPanelColor();
+    }
+    public void SetMove()
+    {
         ColorPanelManager.InsColorPanel();
     }
 
@@ -20,5 +23,6 @@ public class MoveManager : MonoBehaviour
         yield return StartCoroutine(ColorPanelManager.MoveColorPanel());
         ColorPanelManager.DestroyColorPanel();
         ColorPanelManager.InsColorPanel();
+        ColorPanelManager.CheckPanelColor();
     }
 }

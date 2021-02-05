@@ -11,7 +11,7 @@ public class ColorPanelMoverManager : MonoBehaviour
     //プレイ及びターゲットカラーパネルの座標リスト
     Vector2[] playPanelCoordinateList = new Vector2[16];
 
-    private void Start()
+    private void Awake()
     {
 
         //座標リストの初期化

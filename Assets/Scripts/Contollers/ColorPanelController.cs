@@ -5,5 +5,8 @@ using UnityEngine;
 
 public class ColorPanelController : MonoBehaviour
 {
-
+    public void Destruction()
+    {
+        Destroy(gameObject);
+    }
 }
