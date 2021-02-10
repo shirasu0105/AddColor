@@ -5,6 +5,7 @@ using UnityEngine;
 public class Game
 {
     public Color nowTargetColor;
+    public bool gameOver = false;
 
     public void SetGameStatus()
     {

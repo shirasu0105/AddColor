@@ -56,13 +56,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Contollers\ColorPanelMoverController.cs" />
+    <Compile Include="Assets\Scripts\Managers\ToTitleManager.cs" />
     <Compile Include="Assets\Scripts\Other\CheckColor.cs" />
     <Compile Include="Assets\Scripts\Other\ColorPanel\TargetColorPanel.cs" />
     <Compile Include="Assets\Scripts\Other\ColorPanel\ColorCalc.cs" />
+    <Compile Include="Assets\Scripts\Managers\RestartManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\ToMainManager.cs" />
     <Compile Include="Assets\Scripts\Other\Game.cs" />
     <Compile Include="Assets\Scripts\Managers\ColorPanelMoverManager.cs" />
     <Compile Include="Assets\Scripts\Contollers\PlayColorPanelController.cs" />
+    <Compile Include="Assets\Scripts\Managers\TimeLimitManager.cs" />
     <Compile Include="Assets\Scripts\Other\ColorPanel\PlayColorPanel.cs" />
+    <Compile Include="Assets\Scripts\Managers\AnimationManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Contollers\ColorPanelController.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TargetColorPanelMoverManager.cs" />
@@ -73,10 +79,9 @@
     <Compile Include="Assets\Scripts\Other\ColorPanel\ColorPanel.cs" />
     <Compile Include="Assets\Scripts\Managers\MoveManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TargetColorPanelManager.cs" />
-    <Compile Include="Assets\Scripts\Contollers\TargetColorPanelController.cs" />
-    <Compile Include="Assets\Scripts\Managers\AnimationManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ScoreManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\TimeLimitManager.cs" />
+    <Compile Include="Assets\Scripts\Contollers\TargetColorPanelController.cs" />
+    <Compile Include="Assets\Scripts\Managers\ResultManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

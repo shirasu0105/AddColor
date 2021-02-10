@@ -21,6 +21,11 @@ public class MoveManager : MonoBehaviour
     public IEnumerator Move()
     {
         yield return StartCoroutine(ColorPanelManager.MoveColorPanel());
+        if(GameManager.game.gameOver == true)
+        {
+            Debug.Log("ゲームオーバーフラグ");
+            yield break;
+        }
         ColorPanelManager.DestroyColorPanel();
         ColorPanelManager.InsColorPanel();
         ColorPanelManager.CheckPanelColor();

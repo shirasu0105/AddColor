@@ -13,8 +13,24 @@ public class ColorPanelManager : MonoBehaviour
     [SerializeField] ColorPanelMoverManager ColorPanelMoverManager;
 
 
-    public PlayColorPanelController[] playColorPanelControllers = new PlayColorPanelController[16];
+    public PlayColorPanelController[] playColorPanelControllers { get; set; } = new PlayColorPanelController[16];
     private PlayColorPanelController[] destroyPref = new PlayColorPanelController[16];
+
+    public bool isMovingColorPanel { get; private set; }
+
+    //ゲームオーバー時初期化
+    public IEnumerator InitializationColorPanel()
+    {
+        for (int i = 0; i < playColorPanelControllers.Length; i++)
+        {
+            if (playColorPanelControllers[i] != null)
+            {
+                playColorPanelControllers[i].Destruction();
+            }
+            playColorPanelControllers[i] = null;
+        }
+        yield break;
+    }
 
     //余分なプレハブを削除
     public void DestroyColorPanel()
@@ -26,7 +42,7 @@ public class ColorPanelManager : MonoBehaviour
                 destroyPref[i].Destruction();
                 destroyPref[i] = null;
             }
-            
+           
         }
     }
 
@@ -81,6 +97,7 @@ public class ColorPanelManager : MonoBehaviour
 
         PlayColorPanelController[] temp = new PlayColorPanelController[16];
 
+        isMovingColorPanel = true;
         FlickPanel.SetActive(false);
 
             //０から16まで探索
@@ -125,6 +142,7 @@ public class ColorPanelManager : MonoBehaviour
             }
         }
         yield return new WaitUntil(() => finishCount == count);
+        isMovingColorPanel = false;
         FlickPanel.SetActive(true);
 
         Debug.Log("いれかわったよ");

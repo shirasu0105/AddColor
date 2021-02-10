@@ -10,8 +10,18 @@ public class TargetColorPanelManager : MonoBehaviour
     [SerializeField] Transform Parent;
     [SerializeField] TargetColorPanelMoverManager TargetColorPanelMoverManager;
 
-    public TargetColorPanelController[] targetColorPanelControllers = new TargetColorPanelController[5];
+    public TargetColorPanelController[] targetColorPanelControllers { get; set; } = new TargetColorPanelController[5];
 
+    //ゲームオーバー時初期化
+    public IEnumerator InitializationTargetColorPanel()
+    {
+        for (int i = 0; i < targetColorPanelControllers.Length; i++)
+        {
+            targetColorPanelControllers[i].Destruction();
+            targetColorPanelControllers[i] = null;
+        }
+        yield break;
+    }
 
     //満タンになるまで順番にプレハブ生成
     public void InsTargetColorPanel()

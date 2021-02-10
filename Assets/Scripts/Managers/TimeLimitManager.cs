@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 public class TimeLimitManager : MonoBehaviour
 {
+    [SerializeField] ColorPanelManager ColorPanelManager;
+    [SerializeField] GameManager GameManager;
     [SerializeField] GameObject FrontTimeLimitBar;
     [SerializeField] RectTransform canvas;
     [SerializeField] RectTransform BackTimeLimitBar;
 
-    bool timeLimitFlag;
+    bool isMovingTimeLimit;
 
     public IEnumerator StartTimeLimit()
     {
-        timeLimitFlag = true;
+        isMovingTimeLimit = true;
         FrontTimeLimitBar.GetComponent<RectTransform>().offsetMax = new Vector2(0f, -35f);
         float difference = 0f;
-        float timeLimit = 20.0f;
+        float timeLimit = 50.0f;
         float barTimeLimit = canvas.sizeDelta.x - Mathf.Abs(BackTimeLimitBar.GetComponent<RectTransform>().offsetMax.x　* 2);
         float countDown = timeLimit;
 
@@ -25,7 +27,7 @@ public class TimeLimitManager : MonoBehaviour
 
         while (countDown > 0)
         {
-            if(timeLimitFlag == false)
+            if(isMovingTimeLimit == false)
             {
                 Debug.Log("フラグfalse");
                 yield break;
@@ -37,10 +39,13 @@ public class TimeLimitManager : MonoBehaviour
             yield return null;
         }
         Debug.Log("制限時間だよ");
+        yield return new WaitWhile(() => ColorPanelManager.isMovingColorPanel);
+        yield return GameManager.GameOver();
     }
 
-    public void StopTimeLimit()
+    public IEnumerator StopTimeLimit()
     {
-        timeLimitFlag = false;
+        isMovingTimeLimit = false;
+        yield break;
     }
 }
