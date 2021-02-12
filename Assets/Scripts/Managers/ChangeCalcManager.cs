@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChangeCalcManager : MonoBehaviour
 {
-    [SerializeField] Image ChangeCalcButton;
+    [SerializeField] Image MixList;
     [SerializeField] Sprite Add;
     [SerializeField] Sprite Sub; 
     [SerializeField] MoveManager MoveManager;
@@ -15,12 +15,12 @@ public class ChangeCalcManager : MonoBehaviour
         if (MoveManager.move.calcFlag == 0)
         {
             MoveManager.move.calcFlag = 1;
-            ChangeCalcButton.sprite = Sub;
+            MixList.sprite = Sub;
         }
         else
         {
             MoveManager.move.calcFlag = 0;
-            ChangeCalcButton.sprite = Add;
+            MixList.sprite = Add;
         }
         Debug.Log("かるくふらぐ：" + MoveManager.move.calcFlag);
     }

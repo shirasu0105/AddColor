@@ -21,4 +21,5 @@ public class SaveManager : MonoBehaviour
 public class SaveDate
 {
     public int bestScore = 0;
+    public bool firstPlay = true;
 }

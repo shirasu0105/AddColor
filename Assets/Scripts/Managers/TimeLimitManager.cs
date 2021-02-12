@@ -19,7 +19,8 @@ public class TimeLimitManager : MonoBehaviour
         FrontTimeLimitBar.GetComponent<RectTransform>().offsetMax = new Vector2(0f, -35f);
         float difference = 0f;
         float timeLimit = 50.0f;
-        float barTimeLimit = canvas.sizeDelta.x - Mathf.Abs(BackTimeLimitBar.GetComponent<RectTransform>().offsetMax.x　* 2);
+        //float barTimeLimit = canvas.sizeDelta.x - Mathf.Abs(BackTimeLimitBar.GetComponent<RectTransform>().offsetMax.x　* 2);
+        float barTimeLimit = 1000;
         float countDown = timeLimit;
 
         Debug.Log("difference" + difference);

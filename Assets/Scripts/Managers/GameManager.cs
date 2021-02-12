@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject Description;
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] AnimationManager AnimationManager;
     [SerializeField] MoveManager MoveManager;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TargetColorPanelManager TargetColorPanelManager;
     [SerializeField] ScoreManager ScoreManager;
     [SerializeField] TimeLimitManager TimeLimitManager;
+    [SerializeField] SaveManager SaveManager;
 
     public Game game = new Game();
 
@@ -23,7 +25,18 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        StartCoroutine(GameStart());
+        SaveManager.LoadDataFromLocal();
+        if (SaveManager.SaveDate.firstPlay == true)
+        {
+            StartCoroutine(AnimationManager.FadeIn());
+            Description.SetActive(true);
+            //SaveManager.SaveDate.firstPlay = false;
+            SaveManager.SaveDataToLocal();
+        }
+        else
+        {
+            StartCoroutine(GameStart());
+        }
     }
 
     public void ReStart()
@@ -34,6 +47,7 @@ public class GameManager : MonoBehaviour
     //色が揃ったとき
     public IEnumerator CompleteColor()
     {
+        StartCoroutine(AnimationManager.CompleteEffect());
         ScoreManager.PlusScore();
         yield return StartCoroutine(TargetColorPanelManager.MoveTargetColorPanel());
         TargetColorPanelManager.InsTargetColorPanel();
@@ -45,11 +59,12 @@ public class GameManager : MonoBehaviour
     public IEnumerator GameStart()
     {
         game.gameOver = false;
+        Description.SetActive(false);
         GameOverPanel.gameObject.SetActive(false);
         StartCoroutine(AnimationManager.FadeIn());
         ScoreManager.SetScore();
         Debug.Log("こるーちんよぶまえ");
-        yield return AnimationManager.GameStartAnim();
+        yield return AnimationManager.StartCountDown();
         MoveManager.SetMove();
         TargetColorPanelManager.InsTargetColorPanel();
         StartCoroutine(TimeLimitManager.StartTimeLimit());
@@ -64,6 +79,5 @@ public class GameManager : MonoBehaviour
         yield return ColorPanelManager.InitializationColorPanel();
         yield return TargetColorPanelManager.InitializationTargetColorPanel();
         GameOverPanel.gameObject.SetActive(true);
-        yield return AnimationManager.FadeOut();
     }
 }

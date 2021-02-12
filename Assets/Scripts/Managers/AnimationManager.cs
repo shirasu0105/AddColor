@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
-    [SerializeField] Animator StartCountDown; //スタートカウントダウン
+    [SerializeField] Animator StartCountDownAnim; //スタートカウントダウン
     [SerializeField] Animator FadeInAnim;
     [SerializeField] Animator FadeOutAnim;
+    [SerializeField] Animator CompleteAnim;
 
-    public IEnumerator GameStartAnim()
+    public IEnumerator StartCountDown()
     {
-        StartCountDown.gameObject.SetActive(true);
+        StartCountDownAnim.gameObject.SetActive(true);
         yield return new WaitForSeconds(4);
-        StartCountDown.gameObject.SetActive(false);
+        StartCountDownAnim.gameObject.SetActive(false);
     }
 
     public IEnumerator FadeIn()
@@ -29,5 +30,12 @@ public class AnimationManager : MonoBehaviour
         FadeInAnim.Play("FadeOut");
         yield return new WaitForSeconds(1);
         FadeInAnim.gameObject.SetActive(false);
+    }
+
+    public IEnumerator CompleteEffect()
+    {
+        CompleteAnim.gameObject.SetActive(true);
+        yield return new WaitForSeconds(.6f);
+        CompleteAnim.gameObject.SetActive(false);
     }
 }
