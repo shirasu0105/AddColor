@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ToTitleManager : MonoBehaviour
 {
+    [SerializeField] AudioSource ButtonSe;
     [SerializeField] AnimationManager AnimationManager;
 
     public void OnCkick()
     {
+        ButtonSe.Play();
         StartCoroutine(ClickToTitle());
     }
 

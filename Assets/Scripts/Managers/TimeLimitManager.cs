@@ -18,13 +18,9 @@ public class TimeLimitManager : MonoBehaviour
         isMovingTimeLimit = true;
         FrontTimeLimitBar.GetComponent<RectTransform>().offsetMax = new Vector2(0f, -35f);
         float difference = 0f;
-        float timeLimit = 50.0f;
-        //float barTimeLimit = canvas.sizeDelta.x - Mathf.Abs(BackTimeLimitBar.GetComponent<RectTransform>().offsetMax.x　* 2);
+        float timeLimit = 20.0f;
         float barTimeLimit = 1000;
         float countDown = timeLimit;
-
-        Debug.Log("difference" + difference);
-        Debug.Log("timeLimit" + timeLimit);
 
         while (countDown > 0)
         {
@@ -39,7 +35,7 @@ public class TimeLimitManager : MonoBehaviour
             FrontTimeLimitBar.GetComponent<RectTransform>().offsetMax -= new Vector2(difference * (barTimeLimit/ timeLimit), 0f);
             yield return null;
         }
-        Debug.Log("制限時間だよ");
+        Debug.Log("制限時間");
         yield return new WaitWhile(() => ColorPanelManager.isMovingColorPanel);
         yield return GameManager.GameOver();
     }

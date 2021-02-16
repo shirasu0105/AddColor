@@ -33,9 +33,6 @@ public class ColorCalc
         }
 
         Color calcedColor = new Color(r, g, b);
-
-        Debug.Log("計算後：" + calcedColor);
-
         return calcedColor;
     }
 }

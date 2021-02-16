@@ -19,7 +19,6 @@ public class TargetColorPanelMoverManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             targetPanelCoordinateList[i] = new Vector2(playPanelCoordinateRead + (playPanelCoordinateSense * i), 0);
-            Debug.Log(targetPanelCoordinateList[i]);
         }
     }
 

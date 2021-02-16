@@ -2,6 +2,7 @@
 
 public class FlickManager : MonoBehaviour
 {
+    [SerializeField] AudioSource FlickSe;
     [SerializeField] MoveManager MoveManager;
 
     private Vector2 startPos;
@@ -26,6 +27,7 @@ public class FlickManager : MonoBehaviour
     //タップ及び離した位置からフリック方向を取得
     public void Flick()
     {
+        FlickSe.Play();
         if (Mathf.Abs(startPos.x - endPos.x) > Mathf.Abs(startPos.y - endPos.y))
         {
             if (startPos.x > endPos.x)

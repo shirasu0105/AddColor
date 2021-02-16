@@ -78,7 +78,6 @@ public class ColorPanelManager : MonoBehaviour
         var ins = Instantiate(PlayColorPanelPref, Parent);
         playColorPanelControllers[nullPlace[insPlace]] = ins.GetComponent<PlayColorPanelController>();
         playColorPanelControllers[nullPlace[insPlace]].SetColor(MoveManager.move.panelColor[insColor]);
-        Debug.Log("生成色：" + playColorPanelControllers[nullPlace[insPlace]].playColorPanel.myColor);
         ColorPanelMoverManager.ColorPanelIns(ins, nullPlace[insPlace]);
 
         for (int i = 0; i < playColorPanelControllers.Length; i++)
@@ -145,7 +144,6 @@ public class ColorPanelManager : MonoBehaviour
         isMovingColorPanel = false;
         FlickPanel.SetActive(true);
 
-        Debug.Log("いれかわったよ");
         for (int i = 0; i < playColorPanelControllers.Length; i++)
         {
             playColorPanelControllers[i] = temp[i];
@@ -155,7 +153,6 @@ public class ColorPanelManager : MonoBehaviour
     //プレイカラーパネルの色と現在のターゲットカラーパネルの色が同じかどうか
     public void CheckPanelColor()
     {
-        Debug.Log("ターゲットカラー" + GameManager.game.nowTargetColor);
         for (int i = 0; i < playColorPanelControllers.Length; i++)
         {
             if(playColorPanelControllers[i] != null)

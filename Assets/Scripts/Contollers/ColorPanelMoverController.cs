@@ -10,8 +10,7 @@ public class ColorPanelMoverController : MonoBehaviour
         float startTime = Time.time;
         float speed = 4000;
         var distance = Vector2.Distance(coordinate, targetCoordinate);
-        Debug.Log("元距離：" + distance);
-        Debug.Log("先距離：" + Vector2.Distance(transform.localPosition, targetCoordinate));
+
         while (Vector2.Distance(transform.localPosition, targetCoordinate) != 0.0f)
         {
             transform.localPosition = Vector2.Lerp(

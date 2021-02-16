@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(AnimationManager.FadeIn());
             Description.SetActive(true);
-            //SaveManager.SaveDate.firstPlay = false;
+            SaveManager.SaveDate.firstPlay = false;
             SaveManager.SaveDataToLocal();
         }
         else
@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
         GameOverPanel.gameObject.SetActive(false);
         StartCoroutine(AnimationManager.FadeIn());
         ScoreManager.SetScore();
-        Debug.Log("こるーちんよぶまえ");
         yield return AnimationManager.StartCountDown();
         MoveManager.SetMove();
         TargetColorPanelManager.InsTargetColorPanel();

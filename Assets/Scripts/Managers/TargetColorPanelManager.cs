@@ -33,7 +33,6 @@ public class TargetColorPanelManager : MonoBehaviour
                 var ins = Instantiate(TargetColorPanelPref, Parent);
                 targetColorPanelControllers[i] = ins.GetComponent<TargetColorPanelController>();
                 targetColorPanelControllers[i].SetColor(MoveManager.move.panelColor[Random.Range(0, MoveManager.move.panelColor.Length)]);
-                Debug.Log("ターゲットカラーパネル生成色" + MoveManager.move.panelColor[Random.Range(0, MoveManager.move.panelColor.Length)]);
                 TargetColorPanelMoverManager.ColorPanelIns(ins, i);
             }
         }

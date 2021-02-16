@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ChangeCalcManager : MonoBehaviour
 {
+    [SerializeField] AudioSource ChangeCalc;
     [SerializeField] Image MixList;
     [SerializeField] Sprite Add;
     [SerializeField] Sprite Sub; 
@@ -12,6 +13,7 @@ public class ChangeCalcManager : MonoBehaviour
 
     public void OnClick()
     {
+        ChangeCalc.Play();
         if (MoveManager.move.calcFlag == 0)
         {
             MoveManager.move.calcFlag = 1;
@@ -22,6 +24,5 @@ public class ChangeCalcManager : MonoBehaviour
             MoveManager.move.calcFlag = 0;
             MixList.sprite = Add;
         }
-        Debug.Log("かるくふらぐ：" + MoveManager.move.calcFlag);
     }
 }
